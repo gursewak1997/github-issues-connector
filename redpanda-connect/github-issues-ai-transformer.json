@@ -1,0 +1,16 @@
+{
+  "name": "github-issues-ai-transformer",
+  "config": {
+    "connector.class": "io.confluent.connect.transforms.Predicate",
+    "topics": "github-issues",
+    "transforms": "ai-summarize",
+    "transforms.ai-summarize.type": "io.confluent.connect.transforms.OpenAITransform",
+    "transforms.ai-summarize.openai.api.key": "${env:OPENAI_API_KEY}",
+    "transforms.ai-summarize.prompt": "Summarize this GitHub issue in 2-3 sentences. Focus on the main problem and impact:\n\nTitle: {{title}}\nBody: {{body}}\n\nSummary:",
+    "transforms.ai-summarize.model": "gpt-3.5-turbo",
+    "transforms.ai-summarize.max.tokens": "150",
+    "transforms.ai-summarize.temperature": "0.3",
+    "kafka.topic": "github-issues-summarized",
+    "tasks.max": "1"
+  }
+} 

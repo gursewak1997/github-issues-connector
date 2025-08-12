@@ -1,0 +1,13 @@
+{
+  "name": "github-issues-source",
+  "config": {
+    "connector.class": "io.confluent.connect.github.GitHubSourceConnector",
+    "github.repositories": "bootc-dev/bootc",
+    "github.since": "24h",
+    "github.state": "open",
+    "github.topic": "github-issues",
+    "kafka.topic": "github-issues",
+    "tasks.max": "1",
+    "poll.interval.ms": "3600000"
+  }
+} 
