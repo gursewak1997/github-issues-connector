@@ -4,9 +4,9 @@ A Go application that monitors a GitHub repository for new issues and streams th
 
 ## What it does
 
-- Fetches open issues from `bootc-dev/bootc` every minute
+- Fetches open issues from `bootc-dev/bootc` from the past 24 hours
 - Publishes issues to Kafka topic `github-issues`
-- Runs continuously with incremental fetching
+- Runs once and exits (not continuous)
 
 ## Quick start
 
@@ -22,7 +22,7 @@ A Go application that monitors a GitHub repository for new issues and streams th
 ## Configuration
 
 Edit constants in `main.go` to change:
-- Repository owner/name
+- Repository owner/name (currently `bootc-dev/bootc`)
 - Kafka broker address
-- Fetch interval (currently 24 hours)
+- Time range for fetching issues (currently 24 hours)
 - Topic name
